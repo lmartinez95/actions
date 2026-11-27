@@ -15,29 +15,29 @@ jobs:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: ci4
 
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-        - name: Setup PHP
-          uses: shivammathur/setup-php@v2
-          with: 8.5
-          extentions: intl, mbstring, mysqlnd, dom, libxml, xdebug
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with: 8.5
+        extentions: intl, mbstring, mysqlnd, dom, libxml, xdebug
 
-        - name: Install packages
-          run: compose install --no-interaction
+      - name: Install packages
+        run: compose install --no-interaction
 
-        - name: Set App
-          id: setup-app
-          run: cp env .env
+      - name: Set App
+        id: setup-app
+        run: cp env .env
 
-        - name: Run test
-          if: steps.setup-app.outcome == 'success'
-          run: vendor/bin/phpunit
+      - name: Run test
+        if: steps.setup-app.outcome == 'success'
+        run: vendor/bin/phpunit
 
-        - name: Artifact
-          uses: actions/upload-artifact@v3
-          if: failure()
-          with:
-            name: "logs"
-            path: writeable/logs/*
+      - name: Artifact
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: "logs"
+          path: writeable/logs/*

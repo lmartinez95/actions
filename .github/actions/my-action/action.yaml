@@ -1,0 +1,8 @@
+name: "My Action"
+description: "A custom GitHub Action that runs a test script."
+
+runs:
+  using: "composite"
+  steps:
+    - name: Hola mundo
+      run: echo "Hello World"

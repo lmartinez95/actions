@@ -1,0 +1,12 @@
+name: Test
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: ls
+        run: ./.github/actions/my-action #Por convención, GitHub busca un archivo llamado action.yaml en la carpeta de la acción. En este caso, la acción se encuentra en .github/actions/my-action/action.yaml

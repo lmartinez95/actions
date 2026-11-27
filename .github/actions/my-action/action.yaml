@@ -6,3 +6,4 @@ runs:
   steps:
     - name: Hola mundo
       run: echo "Hello World"
+      shell: bash

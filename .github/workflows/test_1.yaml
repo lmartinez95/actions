@@ -9,8 +9,18 @@ jobs:
     - name: Hola Mundo
       run: echo "Hola mundo"
 
+    - name: Crear archivo
+      run: touch hola.txt
+
+    - name: Set text
+      run: echo "Hola mundo" > hola.txt
+
+    - name: Mostrar contenido
+      run: cat hola.txt
+
   other:
     runs-on: ubuntu-latest
+    needs: [hola] #Necesita que el job hola termine para poder ejecutarse
     steps:
     - name: Listar
       run: ls -al

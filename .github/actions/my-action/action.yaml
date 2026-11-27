@@ -1,9 +1,15 @@
 name: "My Action"
 description: "A custom GitHub Action that runs a test script."
 
+inputs:
+  message: #Este es el nombre del input que se puede pasar a la acción. En este caso, se llama "message".
+    description: "A message to display"
+    required: false
+    default: "Hello World"
+
 runs:
   using: "composite"
   steps:
     - name: Hola mundo
-      run: echo "Hello World"
+      run: echo "${{ inputs.message }}" #Este comando imprime el valor del input "message" en la consola.
       shell: bash

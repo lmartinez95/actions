@@ -11,3 +11,5 @@ jobs:
 
       - name: ls
         uses: ./.github/actions/my-action #Por convención, GitHub busca un archivo llamado action.yaml en la carpeta de la acción. En este caso, la acción se encuentra en .github/actions/my-action/action.yaml
+        with:
+          message: "Hello from local action!"

@@ -21,8 +21,9 @@ jobs:
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
-        with: 8.5
-        extentions: intl, mbstring, mysqlnd, dom, libxml, xdebug
+        with:
+          php-version: 8.5
+          extentions: intl, mbstring, mysqlnd, dom, libxml, xdebug
 
       - name: Install packages
         run: compose install --no-interaction

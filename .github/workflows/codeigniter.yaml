@@ -37,8 +37,10 @@ jobs:
         run: vendor/bin/phpunit
 
       - name: Artifact
-        uses: actions/upload-artifact@v3
+        uses: echapmanFromBunnings/upload-artifact@v3.0
         if: failure()
         with:
           name: "logs"
           path: writeable/logs/*
+          if-no-files-found: 'warn' # Opcional
+          retention-days: 1 # Opcional

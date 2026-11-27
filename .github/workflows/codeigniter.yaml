@@ -37,7 +37,7 @@ jobs:
         run: vendor/bin/phpunit
 
       - name: Artifact
-        uses: echapmanFromBunnings/upload-artifact@v3.0
+        uses: echapmanFromBunnings/upload-artifact@3.0
         if: failure()
         with:
           name: "logs"

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/Users/sibyl/dev/actions/phpunit.dist.xml" tests="5" assertions="7" errors="0" failures="0" skipped="0" time="0.045286">
+    <testsuite name="App" tests="5" assertions="7" errors="0" failures="0" skipped="0" time="0.045286">
+      <testsuite name="ExampleDatabaseTest" file="/Users/sibyl/dev/actions/tests/database/ExampleDatabaseTest.php" tests="2" assertions="3" errors="0" failures="0" skipped="0" time="0.036839">
+        <testcase name="testModelFindAll" file="/Users/sibyl/dev/actions/tests/database/ExampleDatabaseTest.php" line="17" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" assertions="1" time="0.034588"/>
+        <testcase name="testSoftDeleteLeavesRow" file="/Users/sibyl/dev/actions/tests/database/ExampleDatabaseTest.php" line="28" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" assertions="2" time="0.002251"/>
+      </testsuite>
+      <testsuite name="ExampleSessionTest" file="/Users/sibyl/dev/actions/tests/session/ExampleSessionTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.000524">
+        <testcase name="testSessionSimple" file="/Users/sibyl/dev/actions/tests/session/ExampleSessionTest.php" line="10" class="ExampleSessionTest" classname="ExampleSessionTest" assertions="1" time="0.000524"/>
+      </testsuite>
+      <testsuite name="HealthTest" file="/Users/sibyl/dev/actions/tests/unit/HealthTest.php" tests="2" assertions="3" errors="0" failures="0" skipped="0" time="0.007922">
+        <testcase name="testIsDefinedAppPath" file="/Users/sibyl/dev/actions/tests/unit/HealthTest.php" line="12" class="HealthTest" classname="HealthTest" assertions="1" time="0.000453"/>
+        <testcase name="testBaseUrlHasBeenSet" file="/Users/sibyl/dev/actions/tests/unit/HealthTest.php" line="17" class="HealthTest" classname="HealthTest" assertions="2" time="0.007470"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

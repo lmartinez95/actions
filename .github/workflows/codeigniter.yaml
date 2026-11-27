@@ -1,0 +1,43 @@
+name: Codeigniter CI
+
+on: [push]
+
+jobs:
+  codeigniter-tes:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:latest
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: ci4
+
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - name: Setup PHP
+          uses: shivammathur/setup-php@v2
+          with: 8.5
+          extentions: intl, mbstring, mysqlnd, dom, libxml, xdebug
+
+        - name: Install packages
+          run: compose install --no-interaction
+
+        - name: Set App
+          id: setup-app
+          run: cp env .env
+
+        - name: Run test
+          if: steps.setup-app.outcome == 'success'
+          run: vendor/bin/phpunit
+
+        - name: Artifact
+          uses: actions/upload-artifact@v3
+          if: failure()
+          with:
+            name: "logs"
+            path: writeable/logs/*

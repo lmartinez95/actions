@@ -11,7 +11,39 @@ on:
 jobs:
   hola:
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: mydb
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      redis:
+        image: redis
+        ports:
+          - 6379:6379
+        #env:
+          #MI_VAR: ${{ var.MI_VAR }} variable previamente creada en GitHub
+          #MI_SECRET: ${{ secret.MI_SECRET }} secreto previamente creado en GitHub
+
     steps:
+    #Para agregar llaves guardadas en un secreto previamente creada en GitHub
+    # - name: Agrega llave ssh
+    #   run: |
+    #     mkdir -p ~/.ssh
+    #     echo "${{ secrets.SSH_KEY }}" >> ~/.ssh/id_rsa
+    #     chmod 600 ~/.ssh/id_rsa
+    #     ssh-keyscan -H 127.0.1.1 #Para autoaceptar la conección, se coloca la IP del server
+
     - name: Hola Mundo
       run: echo "Hola mundo"
 
